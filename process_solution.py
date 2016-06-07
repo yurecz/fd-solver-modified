@@ -64,6 +64,9 @@ def doit(domain, problem, solution, outfile):
         plan = map(lambda x: x.strip().lower(), file.readlines())
         file.close()
 
+        # Remove comment lines
+        plan = filter(lambda x: x[0] != ';', plan)
+
         if (len(plan) == 0) or (len(plan) == 1 and plan[0] == ''):
             err_str = "Suspected timeout.\n\n%s" % solver_output
             return json.dumps({'parse_status': 'err', 'output': solver_output, 'error': err_str})
