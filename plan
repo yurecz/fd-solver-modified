@@ -1,3 +1,3 @@
 #!/bin/bash
 ulimit -v 500000
-timeout 10 "$(dirname "$0")"/siw-then-bfsf --domain $1 --problem $2 --output $3
+timeout 10 "$(dirname "$0")"/FD/fast-downward.py --alias seq-opt-lmcut --plan-file $3 $1 $2
